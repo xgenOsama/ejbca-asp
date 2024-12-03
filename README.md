@@ -10,6 +10,7 @@ dotnet ef database update
 export PATH=$PATH:~/.dotnet/tools
 P@ssw0rd
 
-cd EJBCA
+cd EJBCA-docker
 docker compose up -d 
+https://localhost:8443/ejbca/adminweb/
 ```
