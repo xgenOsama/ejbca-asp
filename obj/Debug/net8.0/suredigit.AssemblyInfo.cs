@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("suredigit")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fa77673a5fbb5f34f09b5399da599e0eaeb1e3e1")]
 [assembly: System.Reflection.AssemblyProductAttribute("suredigit")]
 [assembly: System.Reflection.AssemblyTitleAttribute("suredigit")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

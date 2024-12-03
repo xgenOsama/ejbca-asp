@@ -1,0 +1,34 @@
+networks:
+  application-bridge:
+    driver: bridge
+services:
+  ejbca-database:
+    container_name: ejbca-database
+    image: "library/mariadb:latest"
+    networks:
+      - application-bridge
+    environment:
+      - MYSQL_ROOT_PASSWORD=foo123
+      - MYSQL_DATABASE=ejbca
+      - MYSQL_USER=ejbca
+      - MYSQL_PASSWORD=ejbca
+    volumes:
+      - ./db_data:/var/lib/mysql:rw
+  ejbca-node1:
+    hostname: ejbca-node1
+    container_name: ejbca
+    image: keyfactor/ejbca-ce:8.3.2
+    depends_on:
+      - ejbca-database
+    networks:
+      - application-bridge
+    environment:
+      - DATABASE_JDBC_URL=jdbc:mariadb://ejbca-database:3306/ejbca?characterEncoding=UTF-8
+      - LOG_LEVEL_APP=INFO
+      - LOG_LEVEL_SERVER=INFO
+      - TLS_SETUP_ENABLED=simple
+    volumes:
+      - ./ejbca_data:/opt/keyfactor/ejbca:rw
+    ports:
+      - "8080:8080"
+      - "8443:8443"
