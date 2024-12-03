@@ -1,7 +1,7 @@
 version: '3'
 services:
   signserver:
-    image: signserver/signserver:latest
+    image: keyfactor/signserver-ce:6.3.0
     environment:
       - DB_HOST=db
       - DB_PORT=5432
