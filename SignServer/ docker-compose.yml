@@ -1,0 +1,30 @@
+version: '3'
+services:
+  signserver:
+    image: signserver/signserver:latest
+    environment:
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_NAME=signserver
+      - DB_USER=signserver
+      - DB_PASSWORD=signserverpassword
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    volumes:
+      - ./signserver-config:/opt/signserver/config
+
+  db:
+    image: postgres:latest
+    environment:
+      - POSTGRES_DB=signserver
+      - POSTGRES_USER=signserver
+      - POSTGRES_PASSWORD=signserverpassword
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
+
+networks:
+  default:
+    external:
+      name: signserver_network
