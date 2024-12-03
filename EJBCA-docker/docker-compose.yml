@@ -27,8 +27,6 @@ services:
       - LOG_LEVEL_APP=INFO
       - LOG_LEVEL_SERVER=INFO
       - TLS_SETUP_ENABLED=simple
-    volumes:
-      - ./ejbca_data:/opt/keyfactor/ejbca:rw
     ports:
       - "8080:8080"
       - "8443:8443"
